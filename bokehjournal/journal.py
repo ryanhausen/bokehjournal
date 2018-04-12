@@ -17,7 +17,7 @@ class Journal:
             link(rel='stylesheet', href=link_href, type="text/css")
             script(type='text/javascript', src=js_src)
 
-        
+
     def append_paragraph(self, text):
         with self.doc.body:
             p(text)
@@ -33,7 +33,7 @@ class Journal:
     def append_h3(self, text):
         with self.doc.body:
             h3(text)
-            
+
     def append_list(self, *items):
         with self.doc.body:
             with ul() as unorderedList:
@@ -42,10 +42,10 @@ class Journal:
                         self.append_list(*item)
                     else:
                         li(item)
-                    
+
     def append_bokeh(self, figure):
         js, div = components(figure)
-        
+
         with self.doc.head:
             raw(js)
 
@@ -53,16 +53,17 @@ class Journal:
             raw(div)
 
     def save(self, file_path):
-        print(self.doc.render(), file=file_path)
-            
+        with open(file_path, 'w') as f:
+            print(self.doc.render(), file=f)
+
     def show(self, where='new_window'):
         self.save('output.html')
-        new_settings = ['current_window', 'new_tab', 'new_window']        
+        new_settings = ['current_window', 'new_tab', 'new_window']
 
         if where not in new_settings:
-            raise ValueError('Invalid "where" value. Should be {}'.format(new_settings)
+            raise ValueError('Invalid "where" value. Should be {}'.format(new_settings))
 
-        webbrowser.open('./ouput.html', new=new_settings.index(where))
-        
-            
-            
+        webbrowser.open('./output.html', new=new_settings.index(where))
+
+
+
