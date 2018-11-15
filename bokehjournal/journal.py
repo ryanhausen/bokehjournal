@@ -90,9 +90,9 @@ class Journal:
 
 
     css = {
-        'splendor': "https://rawgit.com/markdowncss/splendor/master/css/splendor.min.css",
-        'retro': "https://rawgit.com//markdowncss/retro/master/css/retro.css",
-        'modest': "https://rawgit.com/markdowncss/air/master/css/splendor.min.css",
+        'splendor': "https://cdn.jsdelivr.net/gh/markdowncss/splendor/css/splendor.min.css",
+        'retro': "https://cdn.jsdelivr.net/gh/markdowncss/retro/css/retro.css",
+        'modest': "https://cdn.jsdelivr.net/gh/markdowncss/air/css/splendor.min.css",
     }
 
 
