@@ -8,17 +8,3 @@ def get_bokeh_src():
     js = BOKEH_URL.format(ver, 'js')
 
     return link, js
-
-def get_bokeh_widgets_src():
-    ver = 'widgets-{}'.format(bokeh.__version__)
-    link = LINK_STRING.format(BOKEH_URL.format(ver,'css'))
-    js = JS_STRING.format(BOKEH_URL.format(ver, 'js'))
-
-    return link, js
-    
-def get_bokeh_widgets_src():
-    ver = 'tables-{}'.format(bokeh.__version__)
-    link = LINK_STRING.format(BOKEH_URL.format(ver,'css'))
-    js = JS_STRING.format(BOKEH_URL.format(ver, 'js'))
-
-    return link, js
