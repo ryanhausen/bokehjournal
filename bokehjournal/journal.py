@@ -2,7 +2,7 @@ import webbrowser
 
 import dominate
 import bokeh_utils as bu
-from dominate.tags import link, script, p, h1, h2, h3, ul, li, style, br
+from dominate.tags import link, script, p, h1, h2, h3, ul, li, style, br, a
 from dominate.util import raw
 from bokeh.embed import components
 
@@ -31,6 +31,16 @@ class Journal:
                 margin: auto;
                 width: 50%;
             }
+
+            div.bk-root {
+                margin: auto;
+                width: 50%;
+            }
+
+            div.bk-canvas-wrapper {
+                margin: auto;
+                width: 50%;
+            }
             """)
 
 
@@ -51,6 +61,10 @@ class Journal:
     def append_h3(self, text):
         with self.doc.body:
             h3(text)
+
+    def append_a(self, text, href):
+        with self.doc.body:
+            a(text, href=href)
 
     def append_list(self, *items):
         with self.doc.body:
@@ -74,6 +88,9 @@ class Journal:
 
         with self.doc.body:
             raw(div)
+
+    def append_chartify(self, chart):
+        self.append_bokeh(chart.figure)
 
     def save(self, file_path):
         with open(file_path, 'w') as f:
